@@ -1,23 +1,23 @@
 library(readr)
 library(dplyr)
-Analisis_aguas_residuales_covid <- read_delim("C:/Users/Usuario/Desktop/Universidad/Asignaturas/3∫ Curso/5∫ Semestre/Fuentes de datos biomÈdicas y web sem·ntica/Seminario/Bases_de_datos/analisis-aguas-residuales-covid.csv", 
+Analisis_aguas_residuales_covid <- read_delim("C:/Users/Usuario/Desktop/Universidad/Asignaturas/3 Curso/5 Semestre/Fuentes de datos biom√©dicas y web sem√°ntica/Practicas/Seminario/Bases_de_datos/analisis-aguas-residuales-covid.csv", 
                                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
 View(Analisis_aguas_residuales_covid)
 levels(factor(Analisis_aguas_residuales_covid$`RESULTADO SARS-COV-2`))
-levels(factor(Analisis_aguas_residuales_covid$VARIACI”N))
-Analisis_aguas_residuales_covid <- rename(.data = Analisis_aguas_residuales_covid, Resultados = `RESULTADO SARS-COV-2`, Variacion = VARIACI”N)
+levels(factor(Analisis_aguas_residuales_covid$VARIACI√ìN))
+Analisis_aguas_residuales_covid <- rename(.data = Analisis_aguas_residuales_covid, Resultados = `RESULTADO SARS-COV-2`, Variacion = VARIACI√ìN)
 
 Analisis_aguas_residuales_covid <- Analisis_aguas_residuales_covid%>%
   mutate(Resultados = replace(Resultados, Resultados=="POSITIVO", 1))%>%
   mutate(Resultados = replace(Resultados, Resultados=="NEGATIVO", 0))%>%
   mutate(Resultados = replace(Resultados, Resultados=="PRESUNTO POSITIVO", 2))%>%
   mutate(Variacion = replace(Variacion, Variacion=="Aumento", 2))%>%
-  mutate(Variacion = replace(Variacion, Variacion=="DisminuciÛn", -1))%>%
+  mutate(Variacion = replace(Variacion, Variacion=="Disminuci√≥n", -1))%>%
   mutate(Variacion = replace(Variacion, Variacion=="Estable", 0))%>%
   mutate(Variacion = replace(Variacion, Variacion=="S/D", 4))%>%
   mutate(Variacion = replace(Variacion, Variacion=="Aumento significativo", 3))%>%
-  mutate(Variacion = replace(Variacion, Variacion=="DisminuciÛn significativa", -2))%>%
-  mutate(Variacion = replace(Variacion, Variacion=="Primera determinaciÛn", 1))
+  mutate(Variacion = replace(Variacion, Variacion=="Disminuci√≥n significativa", -2))%>%
+  mutate(Variacion = replace(Variacion, Variacion=="Primera determinaci√≥n", 1))
 
 levels(factor(Analisis_aguas_residuales_covid$Resultados))
 levels(factor(Analisis_aguas_residuales_covid$Variacion))
