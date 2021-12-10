@@ -38,7 +38,10 @@ grafica2020<-ggplot(data=calificacionesmediaProvincias2020, aes(x=reorder(Provin
   labs( title = "CALIFICACION AGUAS 2020 CYL",
         x = "Provincias",
         y = "Calificacion")+
-  theme (plot.title = element_text(size=rel(2),   color="blue"))
+  geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
+  geom_text(aes(label = Calificación), vjust = -0.3, size = 3.5) +
+  theme (plot.title = element_text(size=rel(2),   color="blue",hjust = 0.5,face="bold"))
+
 #AÑO2019
 calificacionesProvincia2019<-calificaciones_de_zonas_de_aguas_de_bano%>%
   dplyr::filter(.data = ., Año==2019)%>%
@@ -57,6 +60,9 @@ grafica2019<-ggplot(data=calificacionesmediaProvincias2019, aes(x=reorder(Provin
   labs( title = "CALIFICACION AGUAS 2019 CYL",
         x = "Provincias",
         y = "Calificacion")+
+  geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
+  geom_text(aes(label = Calificación), vjust = -0.3, size = 3.5) +
+  theme (plot.title = element_text(size=rel(2),   color="blue",hjust = 0.5,face="bold"))
   theme (plot.title = element_text(size=rel(2),   color="blue")) 
 
 grafica2019
@@ -69,8 +75,9 @@ levels(turismorural$Provincia)
 
 
 barplot(table(turismorural$Provincia),
-        col = "5",
-        border="blue",
+        col = "green",
+        border="dark green",
         main="CASAS RURALES POR PROVINCIA",
         xlab="Provincias",
         ylab="Nº de casas")
+
