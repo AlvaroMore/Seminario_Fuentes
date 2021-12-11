@@ -70,9 +70,41 @@ El cuerpo humano esta formado en un 60% por agua.
   + perdida 10%: inmovilidad
   + perdida 12%: muerte
 </div class="column-right">
-</span>
+
 <center>
 ![](https://www.nalgeneiberia.com/blog/wp-content/uploads/2021/06/1602_Nalgene_blog_cuanta-agua-hemos-de-beber-al-di%CC%81a_001.jpg){width=370px}
 
+## Principales Objetivos
+<div>
+1. Relacionar diferentes zonas geograficas con los distintos niveles de calidad de agua.
+2. Relacionar enfermedades con aguas en mal estado.
+3. Grafica de Castilla y Leon segun la calidad del agua de consumo y baño
+</div>
 
+<center>
+![](https://blog.hotelregio.com/wp-content/uploads/2019/04/201-1024x846.jpg){width=400px}
+
+## METODOLOGIA
+
+* Los archivos escogidos pertenecen a la pagina oficial de la Junta de Castilla y Leon
+* El formato de los datos escogidos son de extension .csv
+* Ficheros:
+  +  [Calificacion de zonas de baño](https://analisis.datosabiertos.jcyl.es/explore/dataset/calificaciones-de-zonas-de-aguas-de-bano/information/?flg=es&disjunctive.provincia&sort=ano&refine.ano=2015&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJjb2x1bW4iLCJmdW5jIjoiQVZHIiwieUF4aXMiOiJub19tdWVzdHJhc19yZWFsaXphZGFzIiwic2NpZW50aWZpY0Rpc3BsYXkiOnRydWUsImNvbG9yIjoiIzY2YzJhNSIsInBvc2l0aW9uIjoiY2VudGVyIn1dLCJ4QXhpcyI6InByb3ZpbmNpYSIsIm1heHBvaW50cyI6bnVsbCwic29ydCI6InNlcmllMS0xIiwic2VyaWVzQnJlYWtkb3duIjoiIiwic2VyaWVzQnJlYWtkb3duVGltZXNjYWxlIjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJjYWxpZmljYWNpb25lcy1kZS16b25hcy1kZS1hZ3Vhcy1kZS1iYW5vIiwib3B0aW9ucyI6eyJmbGciOiJlcyIsImRpc2p1bmN0aXZlLnByb3ZpbmNpYSI6dHJ1ZSwic29ydCI6ImFubyIsInJlZmluZS5hbm8iOiIyMDE1In19fV0sInRpbWVzY2FsZSI6IiIsImRpc3BsYXlMZWdlbmQiOnRydWUsImFsaWduTW9udGgiOnRydWV9)
+
+<center>
+  ![](https://nothingad.com/wp-content/uploads/2020/03/metodologia-estrategia-contenidos-coronavirus.jpg){width=400px}
+
+## Analisis
+Nuestro set de datos [Calificacion de zonas de baño](https://analisis.datosabiertos.jcyl.es/explore/dataset/calificaciones-de-zonas-de-aguas-de-bano/information/?flg=es&disjunctive.provincia&sort=ano&refine.ano=2015&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJjb2x1bW4iLCJmdW5jIjoiQVZHIiwieUF4aXMiOiJub19tdWVzdHJhc19yZWFsaXphZGFzIiwic2NpZW50aWZpY0Rpc3BsYXkiOnRydWUsImNvbG9yIjoiIzY2YzJhNSIsInBvc2l0aW9uIjoiY2VudGVyIn1dLCJ4QXhpcyI6InByb3ZpbmNpYSIsIm1heHBvaW50cyI6bnVsbCwic29ydCI6InNlcmllMS0xIiwic2VyaWVzQnJlYWtkb3duIjoiIiwic2VyaWVzQnJlYWtkb3duVGltZXNjYWxlIjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJjYWxpZmljYWNpb25lcy1kZS16b25hcy1kZS1hZ3Vhcy1kZS1iYW5vIiwib3B0aW9ucyI6eyJmbGciOiJlcyIsImRpc2p1bmN0aXZlLnByb3ZpbmNpYSI6dHJ1ZSwic29ydCI6ImFubyIsInJlZmluZS5hbm8iOiIyMDE1In19fV0sInRpbWVzY2FsZSI6IiIsImRpc3BsYXlMZWdlbmQiOnRydWUsImFsaWduTW9udGgiOnRydWV9), esta formado por un total de 28 columnas en la que nos centraremos en las columnas de Año, Provincia y Calificación.
+ 
+* Año: Indica el año de cuando fueron tomados los valores(2020-2010) <br>
+* Provincia: Indica la provincia de CyL a la que pertenecen los datos <br>
+* Calificación: califica el agua con distintos valores, EXCELENTE, BUENA, SUFICIENTE, INSUFICIENTE y SIN CALIFICAR
+
+## OBJETIVO 1
+
+
+## OBJETIVO 2
+
+## OBJETIVO 3
 
