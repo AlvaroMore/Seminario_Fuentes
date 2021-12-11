@@ -1,0 +1,43 @@
+---
+title: "AGUA Y SALUD"
+author: "David Santamaria,Ignacio Gonzalez, Alvaro Moreno"
+date: "11/12/2021"
+output: 
+  ioslides_presentation:
+    footer: "AGUA Y SALUD"
+    logo: https://yt3.ggpht.com/YlUIIzfVJuvEe05KNqr22IUeeRAkxBMpZpGKtTmWsJMMJhqrtPYZSUKaCp4-4UYjSluR8-54=s900-c-k-c0x00ffffff-no-rj
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## 
+<span style="color:black">
+<center>
+<font size="6">
+
+**AGUA Y SALUD**
+
+</font>
+</center>
+
+<div style="text-align: justify"> 
+
+<span style="color:cadetblue">
+_¿POR QUE?_
+</span>
+
+El agua representa el elemento primordial de toda la vida del planeta porque comprende la estructura y funcionalidad de las celulas.
+
+El cuerpo humano esta formado en un 60% por agua.
+
+</div>
+</span>
+<center>
+
+![](https://curiosoando.com/wp-content/uploads/2018/04/porcentaje-agua-cuerpo-organos-1024x692.jpg){width=400px}
+
+
+
