@@ -63,7 +63,7 @@ grafica2019<-ggplot(data=calificacionesmediaProvincias2019, aes(x=reorder(Provin
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
   geom_text(aes(label = Calificación), vjust = -0.3, size = 3.5) +
   theme (plot.title = element_text(size=rel(2),   color="blue",hjust = 0.5,face="bold"))
-  theme (plot.title = element_text(size=rel(2),   color="blue")) 
+
 
 grafica2019
 grafica2020
