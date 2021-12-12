@@ -185,27 +185,27 @@ GraficaSoria <- ggplot(data = Soria, aes(x = Fecha, y = Resultados))+
   geom_point(aes(colour = Variacion))
 GraficaZamora
 ```
-Podemos observar como se detecta el primer positivo a finales de 2020 y se sigue detectando valores positivos a lo largo del año. Pero a partir de septiembre no se detectan nuevos positivos, lo que nos indica que la provincia esta en muy buena situacion.
+<font size="4"> Podemos observar como se detecta el primer positivo a finales de 2020 y se sigue detectando valores positivos a lo largo del año. Pero a partir de septiembre no se detectan nuevos positivos, lo que nos indica que la provincia esta en muy buena situacion.</font>
 
 
 ## 
 ```{r}
 GraficaSalamanca
 ```
-En Salamanca observamos como se ha detectado la presencia del COVID-19 regularmente durante todo el año. Observamos la cantidad se matiene constante a lo largo del año.
+<font size="4"> En Salamanca observamos como se ha detectado la presencia del COVID-19 regularmente durante todo el año. Observamos la cantidad se matiene constante a lo largo del año.</font>
 
 ## 
 ```{r}
 GraficaBurgos
 ```
-En Burgos, observamos tambien como se ha detectado de manera regular la presencia de COVID-19.
-En este caso, si que observamos una mayor variacion en los valores, ya que aumentan y disminuyen constantemente.
+<font size="4"> En Burgos, observamos tambien como se ha detectado de manera regular la presencia de COVID-19.
+En este caso, si que observamos una mayor variacion en los valores, ya que aumentan y disminuyen constantemente.</font>
 
 ## 
 ```{r}
 GraficaSoria
 ```
-En Soria observamos como se ha detectado el COVID-19 constantemente durante todo el año, con solo un valor negativo. Tambien observasmos que el valor se mantiene constante por lo general.
+<font size="4"> En Soria observamos como se ha detectado el COVID-19 constantemente durante todo el año, con solo un valor negativo. Tambien observasmos que el valor se mantiene constante por lo general.</font>
 
 
 ## OBJETIVO 3
