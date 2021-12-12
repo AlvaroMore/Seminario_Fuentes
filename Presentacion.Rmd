@@ -112,15 +112,82 @@ Nuestro set de datos [Calificacion de zonas de baño](https://analisis.datosabie
 
 ## OBJETIVO 1
 
-
 ## OBJETIVO 2
-En este segundo objetivo hableremos sobre la deteccion de enfermedades analizando las aguas residuales. En este caso, se analizo la presencia de COVID-19 en las aguas residuales de Castilla y León.  
-Las muestras han sido recogidas a lo largo del __año 2021__ y nos centraremos en las muestras recogidas en las __capitales de provicia de Castilla y León__.
+En este segundo objetivo hableremos sobre la deteccion de enfermedades analizando las aguas residuales. En la situacion en la que nos encontramos, se ha hecho patente que el analisis de las aguas residuales nos puede ayudar para localizar e incluso predecir un futuro brote de alguna enfermedad. En este caso, se busca la presencia de __COVID-19__ en las aguas residuales de __Castilla y León__.
 
 <center>
   ![](https://www.webconsultas.com/sites/default/files/styles/cabecera_noticia/public/media/2021/04/05/aguas_residuales-covid.jpg){width=400px}
 
 ## OBJETIVO 2
+Las muestras recogidas para el estudio se obtuvieron en 23 estaciones depuradoras de aguas residuales (EDAR) que hay en Castilla y León. Para nuestro analisis, nos centraremos en los datos obtenidos de las depuradores de las __capitales de provincia__ de la comunidad.  
+Todos los datos han sido recogidos a los largo del __año 2021__.
 
+<center>
+ ![](https://idecyl.jcyl.es/geonetwork/srv/api/records/SPAGOBCYLCITDTSUSERU/attachments/us.edar_cyl_edaru.png){width=300px}
+ 0px}
+
+
+## OBJETIVO 2
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+
+Analisis_aguas_residuales_covid <- read_delim("C:/Users/Usuario/Desktop/Universidad/Asignaturas/3 Curso/5 Semestre/Fuentes de datos biomédicas y web semántica/Practicas/Seminario/Bases_de_datos/analisis-aguas-residuales-covid.csv", 
+                                              delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+Analisis_aguas_residuales_covid <- rename(.data = Analisis_aguas_residuales_covid, Fecha = `FECHA RECOGIDA MUESTRA`, Resultados = `RESULTADO SARS-COV-2`, Variacion = VARIACIÓN)
+
+
+Leon <- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="COLECTOR LEÓN")
+Zamora<- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="EDAR ZAMORA")
+Salamanca<- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="EDAR SALAMANCA")
+Palencia<- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="EDAR PALENCIA")
+Valladolid<- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="EDAR VALLADOLID (VATAR)")
+Avila<- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="EDAR ÁVILA")
+Burgos<- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="EDAR BURGOS")
+Segovia<- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="EDAR SEGOVIA (VATAR)")
+Soria<- Analisis_aguas_residuales_covid%>%
+  filter(EDAR=="EDAR SORIA (VATAR)")
+library(ggplot2)
+GraficaLeon <- ggplot(data = Leon, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Leon")+
+  geom_point(aes(colour = Variacion))
+GraficaZamora <- ggplot(data = Zamora, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Zamora")+
+  geom_point(aes(colour = Variacion))
+GraficaSalamanca <- ggplot(data = Salamanca, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Salamanca")+
+  geom_point(aes(colour = Variacion))
+GraficaPalencia <- ggplot(data = Palencia, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Palencia")+
+  geom_point(aes(colour = Variacion))
+GraficaValladolid <- ggplot(data = Valladolid, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Valladolid")+
+  geom_point(aes(colour = Variacion))
+GraficaAvila <- ggplot(data = Avila, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Avila")+
+  geom_point(aes(colour = Variacion))
+GraficaBurgos <- ggplot(data = Burgos, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Burgos")+
+  geom_point(aes(colour = Variacion))
+GraficaSegovia <- ggplot(data = Segovia, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Segovia")+
+  geom_point(aes(colour = Variacion))
+GraficaSoria <- ggplot(data = Soria, aes(x = Fecha, y = Resultados))+
+  ggtitle("Analisis aguas residuales Soria")+
+  geom_point(aes(colour = Variacion))
+GraficaLeon
+GraficaSalamanca
+```
+
+                                              
 ## OBJETIVO 3
 
