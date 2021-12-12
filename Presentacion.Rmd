@@ -126,12 +126,12 @@ Todos los datos han sido recogidos a los largo del __año 2021__.</font>
  ![](https://idecyl.jcyl.es/geonetwork/srv/api/records/SPAGOBCYLCITDTSUSERU/attachments/us.edar_cyl_edaru.png){width=300px}
 
 
-## OBJETIVO 2
+## 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
 library(dplyr)
 
-Analisis_aguas_residuales_covid <- read_delim("C:/Users/Usuario/Desktop/Universidad/Asignaturas/3 Curso/5 Semestre/Fuentes de datos biomédicas y web semántica/Practicas/Seminario/Bases_de_datos/analisis-aguas-residuales-covid.csv", 
+Analisis_aguas_residuales_covid <- read_delim("DATOS/analisis-aguas-residuales-covid.csv", 
                                               delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 Analisis_aguas_residuales_covid <- rename(.data = Analisis_aguas_residuales_covid, Fecha = `FECHA RECOGIDA MUESTRA`, Resultados = `RESULTADO SARS-COV-2`, Variacion = VARIACIÓN)
@@ -188,20 +188,20 @@ GraficaZamora
 Podemos observar como se detecta el primer positivo a finales de 2020 y se sigue detectando valores positivos a lo largo del año. Pero a partir de septiembre no se detectan nuevos positivos, lo que nos indica que la provincia esta en muy buena situacion.
 
 
-## OBJETIVO 2   
+## 
 ```{r}
 GraficaSalamanca
 ```
 En Salamanca observamos como se ha detectado la presencia del COVID-19 regularmente durante todo el año. Observamos la cantidad se matiene constante a lo largo del año.
 
-## OBJETIVO 2
+## 
 ```{r}
 GraficaBurgos
 ```
 En Burgos, observamos tambien como se ha detectado de manera regular la presencia de COVID-19.
 En este caso, si que observamos una mayor variacion en los valores, ya que aumentan y disminuyen constantemente.
 
-## OBJETIVO 2
+## 
 ```{r}
 GraficaSoria
 ```
