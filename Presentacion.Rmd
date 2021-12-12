@@ -113,18 +113,17 @@ Nuestro set de datos [Calificacion de zonas de baño](https://analisis.datosabie
 ## OBJETIVO 1
 
 ## OBJETIVO 2
-En este segundo objetivo hableremos sobre la deteccion de enfermedades analizando las aguas residuales. En la situacion en la que nos encontramos, se ha hecho patente que el analisis de las aguas residuales nos puede ayudar para localizar e incluso predecir un futuro brote de alguna enfermedad. En este caso, se busca la presencia de __COVID-19__ en las aguas residuales de __Castilla y León__.
+<font size="4">En este segundo objetivo hableremos sobre la deteccion de enfermedades analizando las aguas residuales. En la situacion en la que nos encontramos, se ha hecho patente que el analisis de las aguas residuales nos puede ayudar para localizar e incluso predecir un futuro brote de alguna enfermedad. En este caso, se busca la presencia de __COVID-19__ en las aguas residuales de __Castilla y León__ y su evolucion.</font>
 
 <center>
   ![](https://www.webconsultas.com/sites/default/files/styles/cabecera_noticia/public/media/2021/04/05/aguas_residuales-covid.jpg){width=400px}
 
 ## OBJETIVO 2
-Las muestras recogidas para el estudio se obtuvieron en 23 estaciones depuradoras de aguas residuales (EDAR) que hay en Castilla y León. Para nuestro analisis, nos centraremos en los datos obtenidos de las depuradores de las __capitales de provincia__ de la comunidad.  
-Todos los datos han sido recogidos a los largo del __año 2021__.
+<font size="4">Las muestras recogidas para el estudio se obtuvieron en 23 estaciones depuradoras de aguas residuales (EDAR) que hay en Castilla y León. Para nuestro analisis, nos centraremos en los datos obtenidos de las depuradores de las __capitales de provincia__ de la comunidad. En Castilla y León hay 9 provincias, por lo que en nuestro analisis nos centraremos en los resultados mas relevantes.  
+Todos los datos han sido recogidos a los largo del __año 2021__.</font>
 
 <center>
  ![](https://idecyl.jcyl.es/geonetwork/srv/api/records/SPAGOBCYLCITDTSUSERU/attachments/us.edar_cyl_edaru.png){width=300px}
- 0px}
 
 
 ## OBJETIVO 2
@@ -184,10 +183,30 @@ GraficaSegovia <- ggplot(data = Segovia, aes(x = Fecha, y = Resultados))+
 GraficaSoria <- ggplot(data = Soria, aes(x = Fecha, y = Resultados))+
   ggtitle("Analisis aguas residuales Soria")+
   geom_point(aes(colour = Variacion))
-GraficaLeon
+GraficaZamora
+```
+Podemos observar como se detecta el primer positivo a finales de 2020 y se sigue detectando valores positivos a lo largo del año. Pero a partir de septiembre no se detectan nuevos positivos, lo que nos indica que la provincia esta en muy buena situacion.
+
+
+## OBJETIVO 2   
+```{r}
 GraficaSalamanca
 ```
+En Salamanca observamos como se ha detectado la presencia del COVID-19 regularmente durante todo el año. Observamos la cantidad se matiene constante a lo largo del año.
 
-                                              
+## OBJETIVO 2
+```{r}
+GraficaBurgos
+```
+En Burgos, observamos tambien como se ha detectado de manera regular la presencia de COVID-19.
+En este caso, si que observamos una mayor variacion en los valores, ya que aumentan y disminuyen constantemente.
+
+## OBJETIVO 2
+```{r}
+GraficaSoria
+```
+En Soria observamos como se ha detectado el COVID-19 constantemente durante todo el año, con solo un valor negativo. Tambien observasmos que el valor se mantiene constante por lo general.
+
+
 ## OBJETIVO 3
 
