@@ -94,7 +94,8 @@ El cuerpo humano esta formado en un 60% por agua.
 
 <center>
   ![](https://nothingad.com/wp-content/uploads/2020/03/metodologia-estrategia-contenidos-coronavirus.jpg){width=400px}
-## Analisis
+
+## Analisis 1
 Nuestro set de datos [Analisis de aguas residuales](https://analisis.datosabiertos.jcyl.es/explore/dataset/analisis-aguas-residuales-covid/information/?disjunctive.edar&disjunctive.resultado_sars_cov_2&sort=fecha_recogida_muestra), esta formado por 5 columnas, de las cuales nos centramos en Fecha de recogida, Edar, Resultados y Variacion.
 
 * Fecha de recogida: Indica en que fecha han sido recogidas las muestras
@@ -102,7 +103,7 @@ Nuestro set de datos [Analisis de aguas residuales](https://analisis.datosabiert
 * Resultados: Indica si el analisis ha resultado positivo o negativo
 * Variacion: Indica si ha habido un aumento o disminucion respecto a la muestra recogida anteriormente
 
-## Analisis
+## Analisis 2
 Nuestro set de datos [Calificacion de zonas de baño](https://analisis.datosabiertos.jcyl.es/explore/dataset/calificaciones-de-zonas-de-aguas-de-bano/information/?flg=es&disjunctive.provincia&sort=ano&refine.ano=2015&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJjb2x1bW4iLCJmdW5jIjoiQVZHIiwieUF4aXMiOiJub19tdWVzdHJhc19yZWFsaXphZGFzIiwic2NpZW50aWZpY0Rpc3BsYXkiOnRydWUsImNvbG9yIjoiIzY2YzJhNSIsInBvc2l0aW9uIjoiY2VudGVyIn1dLCJ4QXhpcyI6InByb3ZpbmNpYSIsIm1heHBvaW50cyI6bnVsbCwic29ydCI6InNlcmllMS0xIiwic2VyaWVzQnJlYWtkb3duIjoiIiwic2VyaWVzQnJlYWtkb3duVGltZXNjYWxlIjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJjYWxpZmljYWNpb25lcy1kZS16b25hcy1kZS1hZ3Vhcy1kZS1iYW5vIiwib3B0aW9ucyI6eyJmbGciOiJlcyIsImRpc2p1bmN0aXZlLnByb3ZpbmNpYSI6dHJ1ZSwic29ydCI6ImFubyIsInJlZmluZS5hbm8iOiIyMDE1In19fV0sInRpbWVzY2FsZSI6IiIsImRpc3BsYXlMZWdlbmQiOnRydWUsImFsaWduTW9udGgiOnRydWV9), esta formado por un total de 28 columnas en la que nos centraremos en las columnas de Año, Provincia y Calificación.
  
 * Año: Indica el año de cuando fueron tomados los valores(2020-2010) <br>
@@ -113,6 +114,8 @@ Nuestro set de datos [Calificacion de zonas de baño](https://analisis.datosabie
 
 
 ## OBJETIVO 2
+En este segundo objetivo hableremos sobre la deteccion de enfermedades analizando las aguas residuales. En este caso, se analizo la presencia de COVID-19 en las aguas residuales de Castilla y León.
+Las muestras han sido recogidas a lo largo del año 2021 y nos centraremos en las muestras recogidas en las capitales de provicia de Castilla y León.
 
 ## OBJETIVO 3
 
