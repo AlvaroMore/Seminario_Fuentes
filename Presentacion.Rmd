@@ -93,9 +93,22 @@ El cuerpo humano esta formado en un 60% por agua.
 * Ficheros:
   +  [Calificacion de zonas de baño](https://analisis.datosabiertos.jcyl.es/explore/dataset/calificaciones-de-zonas-de-aguas-de-bano/information/?flg=es&disjunctive.provincia&sort=ano&refine.ano=2015&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJjb2x1bW4iLCJmdW5jIjoiQVZHIiwieUF4aXMiOiJub19tdWVzdHJhc19yZWFsaXphZGFzIiwic2NpZW50aWZpY0Rpc3BsYXkiOnRydWUsImNvbG9yIjoiIzY2YzJhNSIsInBvc2l0aW9uIjoiY2VudGVyIn1dLCJ4QXhpcyI6InByb3ZpbmNpYSIsIm1heHBvaW50cyI6bnVsbCwic29ydCI6InNlcmllMS0xIiwic2VyaWVzQnJlYWtkb3duIjoiIiwic2VyaWVzQnJlYWtkb3duVGltZXNjYWxlIjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJjYWxpZmljYWNpb25lcy1kZS16b25hcy1kZS1hZ3Vhcy1kZS1iYW5vIiwib3B0aW9ucyI6eyJmbGciOiJlcyIsImRpc2p1bmN0aXZlLnByb3ZpbmNpYSI6dHJ1ZSwic29ydCI6ImFubyIsInJlZmluZS5hbm8iOiIyMDE1In19fV0sInRpbWVzY2FsZSI6IiIsImRpc3BsYXlMZWdlbmQiOnRydWUsImFsaWduTW9udGgiOnRydWV9)
   + [Analisis de aguas residuales](https://analisis.datosabiertos.jcyl.es/explore/dataset/analisis-aguas-residuales-covid/information/?disjunctive.edar&disjunctive.resultado_sars_cov_2&sort=fecha_recogida_muestra)
-
+  + [Calificación de agua por provincias](https://analisis.datosabiertos.jcyl.es/explore/dataset/calidad-de-las-aguas-de-consumo-humano/information/?disjunctive.ano&disjunctive.provincia)
 <center>
   ![](https://nothingad.com/wp-content/uploads/2020/03/metodologia-estrategia-contenidos-coronavirus.jpg){width=400px}
+
+## Analisis
+Nuestro set de datos [Calificación de agua por provincias](https://analisis.datosabiertos.jcyl.es/explore/dataset/calidad-de-las-aguas-de-consumo-humano/information/?disjunctive.ano&disjunctive.provincia), esta formado por 50 columnas, de las cuales nos centramos en Año, Provincia y las 5 diferentes columnas segun la calidad del agua.
+
+* Año: Indica en que fecha han sido recogidas las muestras
+* Provincias: Indica en que lugar han sido recogidas las muestras
+
+## Analisis
+* Apta para el consumo: Nº boletines analíticos de calidad de aguas de consumo humano apta para el consumo
+* Apta para el consumo con no conformidad: Nº boletines analíticos de calidad de aguas de consumo humano apta para el consumo con no conformidad
+* No apta para el consumo: Nº boletines analíticos de calidad de aguas de consumo humano no apta para el consumo
+* No apta para el consumo con riesgo para la salud: Nº boletines analíticos de calidad de aguas de consumo humano No apta para el consumo con riesgo para la salud
+* Análisis sin calificación: Nº boletines analíticos de calidad de aguas de consumo humano sin calificación
 
 ## Analisis
 Nuestro set de datos [Analisis de aguas residuales](https://analisis.datosabiertos.jcyl.es/explore/dataset/analisis-aguas-residuales-covid/information/?disjunctive.edar&disjunctive.resultado_sars_cov_2&sort=fecha_recogida_muestra), esta formado por 5 columnas, de las cuales nos centramos en Fecha de recogida, Edar, Resultados y Variacion.
@@ -113,6 +126,236 @@ Nuestro set de datos [Calificacion de zonas de baño](https://analisis.datosabie
 * Calificación: califica el agua con distintos valores, EXCELENTE, BUENA, SUFICIENTE, INSUFICIENTE y SIN CALIFICAR
 
 ## OBJETIVO 1
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+
+calidad_de_las_aguas_de_consumo_humano <- read_delim("C:/Users/ignac/Desktop/calidad-de-las-aguas-de-consumo-humano.csv", 
+                                                     delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+
+calidadAguaAptaProvincia2019<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2019)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Apta para el consumo`,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Apta para el consumo con no conformidad`)
+calidadAguaAptaProvincia2019$AptosTotal = rowSums (calidadAguaAptaProvincia2019[ ,3:4])
+
+
+calidadAguaNoAptaProvincia2019<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2019)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - No apta para el consumo`,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - No apta para el consumo con riesgo para la salud`)
+calidadAguaNoAptaProvincia2019$NoAptosTotal = rowSums (calidadAguaNoAptaProvincia2019[ ,3:4])
+
+
+calidadAguaSinAnalisisProvincia2019<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2019)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`)
+
+
+calidadAguaAptaProvincia2018<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2018)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Apta para el consumo`,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Apta para el consumo con no conformidad`)
+calidadAguaAptaProvincia2018$AptosTotal = rowSums (calidadAguaAptaProvincia2018[ ,3:4])
+
+
+calidadAguaNoAptaProvincia2018<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2018)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - No apta para el consumo`,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - No apta para el consumo con riesgo para la salud`)
+calidadAguaNoAptaProvincia2018$NoAptosTotal = rowSums (calidadAguaNoAptaProvincia2018[ ,3:4])
+
+calidadAguaSinAnalisisProvincia2018<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2018)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`)
+
+
+calidadAguaAptaProvincia2017<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2017)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Apta para el consumo`,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Apta para el consumo con no conformidad`)
+calidadAguaAptaProvincia2017$AptosTotal = rowSums (calidadAguaAptaProvincia2017[ ,3:4])
+
+
+calidadAguaNoAptaProvincia2017<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2017)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - No apta para el consumo`,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - No apta para el consumo con riesgo para la salud`)
+calidadAguaNoAptaProvincia2017$NoAptosTotal = rowSums (calidadAguaNoAptaProvincia2017[ ,3:4])
+
+calidadAguaSinAnalisisProvincia2017<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2017)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`)
+
+
+calidadAguaAptaProvincia2016<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2016)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Apta para el consumo`,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Apta para el consumo con no conformidad`)
+calidadAguaAptaProvincia2016$AptosTotal = rowSums (calidadAguaAptaProvincia2016[ ,3:4])
+
+
+calidadAguaNoAptaProvincia2016<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2016)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - No apta para el consumo`,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - No apta para el consumo con riesgo para la salud`)
+calidadAguaNoAptaProvincia2016$NoAptosTotal = rowSums (calidadAguaNoAptaProvincia2016[ ,3:4])
+
+calidadAguaSinAnalisisProvincia2016<-calidad_de_las_aguas_de_consumo_humano%>%
+  dplyr::filter(.data = ., Año==2016)%>%
+  select(Año,Provincia,`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`)
+
+graficaAptos2019<-ggplot(data = calidadAguaAptaProvincia2019, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
+  labs( title = "CALIFICACION AGUAS APTAS 2019 CYL",
+        x = "Provincias",
+        y = "Numero Aptos Total")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+graficaNoAptos2019<-ggplot(data = calidadAguaNoAptaProvincia2019, aes(x = reorder(Provincia,-NoAptosTotal), y = NoAptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "red")+
+  labs( title = "CALIFICACION AGUAS NO APTAS 2019 CYL",
+        x = "Provincias",
+        y = "Numero No Aptos Total")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+graficaSinCalificar2019<-ggplot(data = calidadAguaSinAnalisisProvincia2019, aes(x = reorder(Provincia,-`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`), y = `Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "grey")+
+  labs( title = "AGUAS SIN CALIFICAR 2019 CYL",
+        x = "Provincias",
+        y = "Numero Sin Calificación")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+
+graficaAptos2018<-ggplot(data = calidadAguaAptaProvincia2018, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
+  labs( title = "CALIFICACION AGUAS APTAS 2018 CYL",
+        x = "Provincias",
+        y = "Numero Aptos Total")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+graficaNoAptos2018<-ggplot(data = calidadAguaNoAptaProvincia2018, aes(x = reorder(Provincia,-NoAptosTotal), y = NoAptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "red")+
+  labs( title = "CALIFICACION AGUAS NO APTAS 2018 CYL",
+        x = "Provincias",
+        y = "Numero No Aptos Total")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+graficaSinCalificar2018<-ggplot(data = calidadAguaSinAnalisisProvincia2018, aes(x = reorder(Provincia,-`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`), y = `Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "grey")+
+  labs( title = "AGUAS SIN CALIFICAR 2018 CYL",
+        x = "Provincias",
+        y = "Numero Sin Calificación")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+
+
+graficaAptos2017<-ggplot(data = calidadAguaAptaProvincia2017, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
+  labs( title = "CALIFICACION AGUAS APTAS 2017 CYL",
+        x = "Provincias",
+        y = "Numero Aptos Total")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+graficaNoAptos2017<-ggplot(data = calidadAguaNoAptaProvincia2017, aes(x = reorder(Provincia,-NoAptosTotal), y = NoAptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "red")+
+  labs( title = "CALIFICACION AGUAS NO APTAS 2017 CYL",
+        x = "Provincias",
+        y = "Numero No Aptos Total")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+graficaSinCalificar2017<-ggplot(data = calidadAguaSinAnalisisProvincia2017, aes(x = reorder(Provincia,-`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`), y = `Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "grey")+
+  labs( title = "AGUAS SIN CALIFICAR 2017 CYL",
+        x = "Provincias",
+        y = "Numero Sin Calificación")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+
+
+graficaAptos2016<-ggplot(data = calidadAguaAptaProvincia2016, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
+  labs( title = "CALIFICACION AGUAS APTAS 2016 CYL",
+        x = "Provincias",
+        y = "Numero Aptos Total")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+graficaNoAptos2016<-ggplot(data = calidadAguaNoAptaProvincia2016, aes(x = reorder(Provincia,-NoAptosTotal), y = NoAptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "red")+
+  labs( title = "CALIFICACION AGUAS NO APTAS 2016 CYL",
+        x = "Provincias",
+        y = "Numero No Aptos Total")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+
+graficaSinCalificar2016<-ggplot(data = calidadAguaSinAnalisisProvincia2016, aes(x = reorder(Provincia,-`Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`), y = `Nº boletines analíticos de calidad de aguas de consumo humano por su calificación - Análisis sin calificación`)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "grey")+
+  labs( title = "AGUAS SIN CALIFICAR 2016 CYL",
+        x = "Provincias",
+        y = "Numero Sin Calificación")+
+  theme (plot.title = element_text(size=rel(2),   color="black")) 
+```
+
+<font size="4">En el primer obetivo hablaremos sobre las diferentes provincias de __Castilla y León__ y sus distintas calidades de agua, con tres niveles de calidad de agua, __apta__, __no apta__ y __sin calificar__. Lo haremos para los años __2019__, __2018__, __2017__ y __2016__.</font>
+
+<center>
+  ![](https://www.iagua.es/sites/default/files/styles/thumbnail-830x455/public/potable_maule_utalca.jpg?itok=Bk9Iyif5){width=600px}
+
+## OBJETIVO 1
+<font size="4">Para relacionar las diferentes calidades de agua con sus respectivas provincias de Castilla y León en los distintos años mencionados anteriormente, hemos tenido que reagrupar columnas de la base de datos puesto que en ella encontrabamos las calidades de agua separadas en dos tipos de aptos y no aptos, lo cual no nos parecia extremadamente relevante para nuestro analisis por lo que hemos optado por reagrupar las calidades de agua en apto y no apto, además de sin calificar.</font>
+
+<center>
+  ![](https://agqlabs.es/tienda/wp-content/uploads/2020/09/an%C3%A1lisis-calidad-del-agua.jpg){width=400px}
+  
+## 
+```{r,  fig.height=3, fig.dim=3}
+graficaAptos2019
+graficaAptos2018
+```
+  
+## 
+```{r,  fig.height=3, fig.dim=3}
+graficaAptos2017
+graficaAptos2016
+```
+
+##
+<font size="4"> Podemos observar como a la cabeza de Castilla y León en terminos de calidad a agua encontramos en primer lugar a León durante 4 años consecutivos al igual que en segundo lugar se encuentra Salamanca y en tercer lugar Burgos durante estos 4 años. El resto de provincias tienen niveles mas o menos parecidos y campian de posicion dependiendo de los años salvo Segovia y palencia que siempre estan en último lugar.</font>
+
+<center>
+  ![](https://cdn-blog1.fibrasynormasdecolombia.com/wp-content/uploads/2018/04/CALIDAD_AGUA.jpg){width=500px}
+  
+  ## 
+```{r,  fig.height=3, fig.dim=3}
+graficaNoAptos2019
+graficaNoAptos2018
+```
+  
+## 
+```{r,  fig.height=3, fig.dim=3}
+graficaNoAptos2017
+graficaNoAptos2016
+```
+
+##
+<font size="4"> Podemos observar como en cuanto a calidad del agua no apta no podemos establecer ninguna relacion clara entre provincias ya que estas varian ampliamente durante los 4 años de nuestro estudio. No obstante, podriamos remarcar que Ávila, Segovia y salamaca se pelean por las tres primeras plazas en cuanto a calidad del agua no apta, salvo en 2016 donde entra en juego tambíen León. Podríamos recalcar también que Palencia y zamora se encuentran casi siempre en las ultimas posiciones.</font>
+
+<center>
+  ![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=500px}
+  
+  ## 
+```{r,  fig.height=3, fig.dim=3}
+graficaSinCalificar2019
+graficaSinCalificar2018
+```
+  
+## 
+```{r,  fig.height=3, fig.dim=3}
+graficaSinCalificar2017
+graficaSinCalificar2016
+```
+
+##
+<font size="4"> Para terminar con el objetivo 1, podemos observar que no existe relación alguna entre las provincias y sus niveles de agua sin calificar.</font>
+
+<center>
+  ![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=700px}
 
 ## OBJETIVO 2
 <font size="4">En este segundo objetivo hableremos sobre la deteccion de enfermedades analizando las aguas residuales. En la situacion en la que nos encontramos, se ha hecho patente que el analisis de las aguas residuales nos puede ayudar para localizar e incluso predecir un futuro brote de alguna enfermedad. En este caso, se busca la presencia de __COVID-19__ en las aguas residuales de __Castilla y León__ y su evolucion.</font>
