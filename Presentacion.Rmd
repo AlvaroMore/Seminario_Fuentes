@@ -133,7 +133,7 @@ library(dplyr)
 library(tidyverse)
 library(ggplot2)
 
-calidad_de_las_aguas_de_consumo_humano <- read_delim("C:/Users/ignac/Desktop/calidad-de-las-aguas-de-consumo-humano.csv", 
+calidad_de_las_aguas_de_consumo_humano <- read_delim("DATOS/calidad-de-las-aguas-de-consumo-humano (1).csv", 
                                                      delim = ";", escape_double = FALSE, trim_ws = TRUE)
 
 
@@ -472,7 +472,7 @@ calificacionesmediaProvincias2020<-calificacionesProvincia2020%>%
 
 grafica2020<-ggplot(data=calificacionesmediaProvincias2020, aes(x=reorder(Provincia,-Calificación), y=Calificación), fill = "rojo") + 
   geom_bar(stat="identity", position="dodge")+
-  labs( title = "CALIFICACION AGUAS 2020 CYL",
+  labs( title = "CALIFICACION AGUAS DE BAÑO 2020 CYL",
         x = "Provincias",
         y = "Calificacion")+
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
@@ -493,9 +493,25 @@ calificacionesmediaProvincias2019<-calificacionesProvincia2019%>%
 
 grafica2019<-ggplot(data=calificacionesmediaProvincias2019, aes(x=reorder(Provincia,-Calificación), y=Calificación), fill = "rojo") + 
   geom_bar(stat="identity", position="dodge")+
-  labs( title = "CALIFICACION AGUAS 2019 CYL",
+  labs( title = "CALIFICACION AGUAS DE BAÑO 2019 CYL",
         x = "Provincias",
         y = "Calificacion")+
+  geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
+  theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
+
+agua2020<-ggplot(data = calidadAguaAptaProvincia2019, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
+  labs( title = "CALIFICACION AGUAS APTAS 2020 CYL",
+        x = "Provincias",
+        y = "Numero Aptos Total")+
+  geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
+  theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
+
+agua2019<-ggplot(data = calidadAguaAptaProvincia2018, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+  geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
+  labs( title = "CALIFICACION AGUAS APTAS 2019 CYL",
+        x = "Provincias",
+        y = "Numero Aptos Total")+
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
   theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
 ```
@@ -517,6 +533,13 @@ grafica2019
 
 ## 
 
-```{r}
-grafica2019
+```{r,  fig.height=3, fig.dim=3}
+agua2020
+agua2019
 ```
+
+## RELACION
+
+Como podemos apreciar en ambas graficas no existe relacion entre la calidad del agua de consumo con la calidad del agua de baño de las distintas provincias de Castilla y Leon
+
+![](https://www.12caracteristicas.com/wp-content/uploads/2018/09/hipotesis.png){width=400px}
