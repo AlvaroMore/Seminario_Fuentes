@@ -5,7 +5,7 @@ author:
 - name: "David Santamaria Santamaria"
 - name: "Alvaro Moreno Palma"
 - name: "Ignacio Gonzalez Arnaiz"
-date: "Fecha: 24/04/2022"
+date: "Fecha: 24/01/2022"
 output: 
   html_document:
     toc: true
@@ -40,7 +40,7 @@ knitr::opts_chunk$set(echo = FALSE)
 <center>
 <font size="6">
 
-**AGUA Y SALUD**
+# **1. AGUA Y SALUD**
 
 </font>
 </center>
@@ -61,7 +61,7 @@ El cuerpo humano esta formado en un 60% por agua.
 
 ![](https://curiosoando.com/wp-content/uploads/2018/04/porcentaje-agua-cuerpo-organos-1024x692.jpg){width=400px}
 
-## AGUA
+## 
 
 <div class="column-left">
 * Humano promedio
@@ -80,7 +80,7 @@ El cuerpo humano esta formado en un 60% por agua.
 <center>
 ![](https://www.nalgeneiberia.com/blog/wp-content/uploads/2021/06/1602_Nalgene_blog_cuanta-agua-hemos-de-beber-al-di%CC%81a_001.jpg){width=370px}
 
-## Principales Objetivos
+## **2.Principales Objetivos**
 <div>
 1. Relacionar diferentes zonas geograficas con los distintos niveles de calidad de agua.
 2. Deteccion de enfermedades en aguas residuales.
