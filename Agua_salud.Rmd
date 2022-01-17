@@ -34,17 +34,15 @@ knitr::opts_chunk$set(echo = FALSE)
   text-align: left;
 }
 </style>
-
-<span style="color:black">
 <center>
+<span style="color:black">
+
 <font size="6">
 
 # **1. AGUA Y SALUD**
 
 </font>
 
-
-<div style="text-align: justify"> 
 
 <span style="color:cadetblue">
 _¿POR QUE?_
@@ -74,11 +72,11 @@ El agua total disminuye con la edad, desde aproximadamente un 75 % del peso corp
 ![](https://curiosoando.com/wp-content/uploads/2018/04/porcentaje-agua-cuerpo-organos-1024x692.jpg){width=350px}
 
 #  **2.Principales Objetivos**
-<div class>
+<div >
 1. Relacionar diferentes zonas geograficas con los distintos niveles de calidad de agua.
 2. Deteccion de enfermedades en aguas residuales.
 3. Grafica de Castilla y Leon segun la calidad del agua de consumo y baño.
-</div>
+</div >
 
 <center>
 ![](https://blog.hotelregio.com/wp-content/uploads/2019/04/201-1024x846.jpg){width=400px}
