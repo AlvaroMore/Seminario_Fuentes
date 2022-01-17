@@ -451,29 +451,25 @@ GraficaSoria
 ## __Tercer objetivo__
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-calificaciones_de_zonas_de_aguas_de_bano <- read_delim("DATOS/calificaciones-de-zonas-de-aguas-de-bano.csv",
-                                                       col_types = cols(Calificación = readr::col_factor(levels = c("EXCELENTE", "BUENA", "SUFICIENTE", "INSUFICIENTE","SIN CALIFICAR"))),
-                                                       delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-calificacionesProvincia2020<-calificaciones_de_zonas_de_aguas_de_bano%>%
-  dplyr::filter(.data = ., Año==2020)%>%
+library(readr)
+calificaciones_de_zonas_de_aguas_de_bano<- read_delim("DATOS/calificaciones-de-zonas-de-aguas-de-bano.csv", 
+                                                       delim = ";", escape_double = FALSE, trim_ws = TRUE,
+)
+#EXCELENTE4,BUENA 3,SUFICIENTE 2 INSUFICIENTE 1, SIN CALIFICAR NA
+#AÑO 2018
+calificacionesProvincia2018<-calificaciones_de_zonas_de_aguas_de_bano%>%
+  dplyr::filter(.data = ., Año==2018)%>%
   select(Año,Provincia,Calificación)%>%
-  mutate(Calificación = ifelse(Calificación=="EXCELENTE",4,ifelse(Calificación=="BUENA",3,ifelse(Calificación=="SUFICIENTE",2,ifelse(Calificación=="INSUFICIENTE",1,NA)))))
+  mutate(Calificación = ifelse(Calificación=="Excelente",4,ifelse(Calificación=="Buena",3,ifelse(Calificación=="Suficiente",2,
+                        ifelse(Calificación=="Insuficiente",1,NA)))))
 
-calificacionesmediaProvincias2020<-calificacionesProvincia2020%>%
+calificacionesmediaProvincias2018<-calificacionesProvincia2018%>%
   group_by(Provincia)%>%
   filter(n() > 1) %>%
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
 
-grafica2020<-ggplot(data=calificacionesmediaProvincias2020, aes(x=reorder(Provincia,-Calificación), y=Calificación), fill = "rojo") + 
-  geom_bar(stat="identity", position="dodge")+
-  labs( title = "CALIFICACION AGUAS DE BAÑO 2020 CYL",
-        x = "Provincias",
-        y = "Calificacion")+
-  geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
-  
-  theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
 
+#AÑO2019
 calificacionesProvincia2019<-calificaciones_de_zonas_de_aguas_de_bano%>%
   dplyr::filter(.data = ., Año==2019)%>%
   select(Año,Provincia,Calificación)%>%
@@ -494,17 +490,25 @@ grafica2019<-ggplot(data=calificacionesmediaProvincias2019, aes(x=reorder(Provin
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
   theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
 
-agua2020<-ggplot(data = calidadAguaAptaProvincia2019, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+grafica2018<-ggplot(data=calificacionesmediaProvincias2018, aes(x=reorder(Provincia,-Calificación), y=Calificación), fill = "rojo") + 
+  geom_bar(stat="identity", position="dodge")+
+  labs( title = "CALIFICACION AGUAS DE BAÑO 2018 CYL",
+        x = "Provincias",
+        y = "Calificacion")+
+  geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
+  theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
+
+agua2019<-ggplot(data = calidadAguaAptaProvincia2019, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
   geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
-  labs( title = "CALIFICACION AGUAS APTAS 2020 CYL",
+  labs( title = "CALIFICACION AGUAS APTAS 2019 CYL",
         x = "Provincias",
         y = "Numero Aptos Total")+
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
   theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
 
-agua2019<-ggplot(data = calidadAguaAptaProvincia2018, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+agua2018<-ggplot(data = calidadAguaAptaProvincia2018, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
   geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
-  labs( title = "CALIFICACION AGUAS APTAS 2019 CYL",
+  labs( title = "CALIFICACION AGUAS APTAS 2018 CYL",
         x = "Provincias",
         y = "Numero Aptos Total")+
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
@@ -514,21 +518,16 @@ agua2019<-ggplot(data = calidadAguaAptaProvincia2018, aes(x = reorder(Provincia,
 En este tercer objetivo hablaremos de la relacion que tienen la calidad de agua de consumo con la calidad del agua de baño en Castilla y Leon.
 El agua de consumo lo evaluaremos como __Apto__ o __No Apto__ y el Agua de baño lo evaluaremos numericamente del 0 al 4, siendo el 4 una calidad __Excelente__ y el 0 una calidad __Insuficiente__.
 <center>
-![](https://www.ambientalys.com/web/wp-content/uploads/2018/07/agua-de-consumo-humano.jpg){width=350px}
-
 
 ![](https://www.salamanca24horas.com/uploads/s1/12/45/16/68/estanque-la-palla-garcibuey-foto-ayuntamiento-1.jpeg){width=300px}
 
 
 ```{r,  fig.height=3}
-grafica2020
 grafica2019
-```
+grafica2018
 
-
-```{r,  fig.height=3, fig.dim=3}
-agua2020
 agua2019
+agua2018
 ```
 
 ### RELACION
