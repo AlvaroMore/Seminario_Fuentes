@@ -1,22 +1,32 @@
 ---
-title: "AGUA Y SALUD"
-author: "David Santamaria,Ignacio Gonzalez, Alvaro Moreno"
-date: "11/12/2021"
+title: "<font size = 8>__AGUA Y SALUD__</font>"
+subtitle: "<font size = 3> Repositorio: [GitHub](https://github.com/AlvaroMore/Seminario_Fuentes) </font>"
+author:
+- name: "David Santamaria Santamaria"
+- name: "Alvaro Moreno Palma"
+- name: "Ignacio Gonzalez Arnaiz"
+date: "Fecha: 24/01/2022"
 output: 
-  ioslides_presentation:
-    footer: "AGUA Y SALUD"
-    logo: https://yt3.ggpht.com/YlUIIzfVJuvEe05KNqr22IUeeRAkxBMpZpGKtTmWsJMMJhqrtPYZSUKaCp4-4UYjSluR8-54=s900-c-k-c0x00ffffff-no-rj
-    
-
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 6
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+<script>
+   $(document).ready(function() {
+     $head = $('#header');
+     $head.prepend('<img src=https://www.ubu.es/sites/all/themes/ubu_theme_sub/images/EscudoUBU-TL.png style=\"float: right;width: 300px;\"/>')
+   });
+</script>
+
 <style>
 .column-left{
   float: left;
-  width: 40%;
+  width: 50%;
   text-align: left;
 }
 .column-center{
@@ -26,67 +36,54 @@ knitr::opts_chunk$set(echo = FALSE)
 }
 .column-right{
   float: right;
-  width: 60%;
-  text-align: left;
+  width: 50%;
+  text-align:right;
 }
 </style>
 
-## 
-<span style="color:black">
-<center>
-<font size="6">
+<div style="text-align: justify">
 
-**AGUA Y SALUD**
+# **1. AGUA Y SALUD**
 
-</font>
-</center>
-
-<div style="text-align: justify"> 
 
 <span style="color:cadetblue">
 _¿POR QUE?_
 </span>
+  
+El agua es un nutriente esencial para la vida y el componente más abundante del cuerpo humano, participando de alguna manera en prácticamente todos los procesos fisiológicos.
 
-El agua representa el elemento primordial de toda la vida del planeta porque comprende la estructura y funcionalidad de las celulas.
+La cantidad de agua presente en el cuerpo depende de muchos factores que son variables, no solo en función de cada persona en concreto sino también según su cronología y estados fisiopatológicos. La cantidad total de agua y su distribución en los distintos compartimentos depende de factores como: edad, sexo, raza, volumen corporal, temperatura, metabolismo, estado de salud, actividades físicas, dieta, medicación, etc.
 
-El cuerpo humano esta formado en un 60% por agua.
+El agua total disminuye con la edad, desde aproximadamente un 75 % del peso corporal en los primeros meses de vida hasta un 55 % en las personas mayores, representando de media el 60 % en los adultos. Además, las partes del organismo tienen porcentajes de agua muy distintos que también cambian con la edad. Después del primer año de vida, parte del contenido de agua se sustituye por proteínas y minerales. Debido a que tienen mayor tamaño corporal y más masa magra, que tiene un mayor contenido de agua que la grasa, los varones suelen tener un mayor porcentaje de agua que las mujeres
 
 </div>
-</span>
-<center>
 
-![](https://curiosoando.com/wp-content/uploads/2018/04/porcentaje-agua-cuerpo-organos-1024x692.jpg){width=400px}
-
-## AGUA
 
 <div class="column-left">
 * Humano promedio
   + Consume 2.3 litros/agua/dia
   + Expele 2.3 litros/agua/dia
-  
-</div>
-<div class=column-right>
+
+
 * Dependencia hídrica:
   + perdida 1%: sed
   + perdida 5%: fiebre
   + perdida 10%: inmovilidad
   + perdida 12%: muerte
-</div class="column-right">
+</div class="column-left">
 
-<center>
-![](https://www.nalgeneiberia.com/blog/wp-content/uploads/2021/06/1602_Nalgene_blog_cuanta-agua-hemos-de-beber-al-di%CC%81a_001.jpg){width=370px}
+![](https://curiosoando.com/wp-content/uploads/2018/04/porcentaje-agua-cuerpo-organos-1024x692.jpg){width=350px}
 
-## Principales Objetivos
-<div>
+#  **2.Principales Objetivos**
+<div class="column-left">
 1. Relacionar diferentes zonas geograficas con los distintos niveles de calidad de agua.
 2. Deteccion de enfermedades en aguas residuales.
 3. Grafica de Castilla y Leon segun la calidad del agua de consumo y baño.
-</div>
+</div class="column-left">
 
-<center>
-![](https://blog.hotelregio.com/wp-content/uploads/2019/04/201-1024x846.jpg){width=400px}
+![](https://blog.hotelregio.com/wp-content/uploads/2019/04/201-1024x846.jpg){width=200px}
 
-## METODOLOGIA
+# **3.METODOLOGIA**
 
 * Los archivos escogidos pertenecen a la pagina oficial de la Junta de Castilla y Leon
 * El formato de los datos escogidos son de extension .csv
@@ -97,20 +94,21 @@ El cuerpo humano esta formado en un 60% por agua.
 <center>
   ![](https://nothingad.com/wp-content/uploads/2020/03/metodologia-estrategia-contenidos-coronavirus.jpg){width=400px}
 
-## Analisis
+# **4.Analisis**
+## __Agua por provincias__
 Nuestro set de datos [Calificación de agua por provincias](https://analisis.datosabiertos.jcyl.es/explore/dataset/calidad-de-las-aguas-de-consumo-humano/information/?disjunctive.ano&disjunctive.provincia), esta formado por 50 columnas, de las cuales nos centramos en Año, Provincia y las 5 diferentes columnas segun la calidad del agua.
 
 * Año: Indica en que fecha han sido recogidas las muestras
 * Provincias: Indica en que lugar han sido recogidas las muestras
 
-## Analisis
+
 * Apta para el consumo: Nº boletines analíticos de calidad de aguas de consumo humano apta para el consumo
 * Apta para el consumo con no conformidad: Nº boletines analíticos de calidad de aguas de consumo humano apta para el consumo con no conformidad
 * No apta para el consumo: Nº boletines analíticos de calidad de aguas de consumo humano no apta para el consumo
 * No apta para el consumo con riesgo para la salud: Nº boletines analíticos de calidad de aguas de consumo humano No apta para el consumo con riesgo para la salud
 * Análisis sin calificación: Nº boletines analíticos de calidad de aguas de consumo humano sin calificación
 
-## Analisis
+## __Aguas residuales__
 Nuestro set de datos [Analisis de aguas residuales](https://analisis.datosabiertos.jcyl.es/explore/dataset/analisis-aguas-residuales-covid/information/?disjunctive.edar&disjunctive.resultado_sars_cov_2&sort=fecha_recogida_muestra), esta formado por 5 columnas, de las cuales nos centramos en Fecha de recogida, Edar, Resultados y Variacion.
 
 * Fecha de recogida: Indica en que fecha han sido recogidas las muestras
@@ -118,14 +116,15 @@ Nuestro set de datos [Analisis de aguas residuales](https://analisis.datosabiert
 * Resultados: Indica si el analisis ha resultado positivo o negativo
 * Variacion: Indica si ha habido un aumento o disminucion respecto a la muestra recogida anteriormente
 
-## Analisis
+## __Zonas de Baño__
 Nuestro set de datos [Calificacion de zonas de baño](https://analisis.datosabiertos.jcyl.es/explore/dataset/calificaciones-de-zonas-de-aguas-de-bano/information/?flg=es&disjunctive.provincia&sort=ano&refine.ano=2015&dataChart=eyJxdWVyaWVzIjpbeyJjaGFydHMiOlt7InR5cGUiOiJjb2x1bW4iLCJmdW5jIjoiQVZHIiwieUF4aXMiOiJub19tdWVzdHJhc19yZWFsaXphZGFzIiwic2NpZW50aWZpY0Rpc3BsYXkiOnRydWUsImNvbG9yIjoiIzY2YzJhNSIsInBvc2l0aW9uIjoiY2VudGVyIn1dLCJ4QXhpcyI6InByb3ZpbmNpYSIsIm1heHBvaW50cyI6bnVsbCwic29ydCI6InNlcmllMS0xIiwic2VyaWVzQnJlYWtkb3duIjoiIiwic2VyaWVzQnJlYWtkb3duVGltZXNjYWxlIjoiIiwiY29uZmlnIjp7ImRhdGFzZXQiOiJjYWxpZmljYWNpb25lcy1kZS16b25hcy1kZS1hZ3Vhcy1kZS1iYW5vIiwib3B0aW9ucyI6eyJmbGciOiJlcyIsImRpc2p1bmN0aXZlLnByb3ZpbmNpYSI6dHJ1ZSwic29ydCI6ImFubyIsInJlZmluZS5hbm8iOiIyMDE1In19fV0sInRpbWVzY2FsZSI6IiIsImRpc3BsYXlMZWdlbmQiOnRydWUsImFsaWduTW9udGgiOnRydWV9), esta formado por un total de 28 columnas en la que nos centraremos en las columnas de Año, Provincia y Calificación.
  
 * Año: Indica el año de cuando fueron tomados los valores(2020-2010) <br>
 * Provincia: Indica la provincia de CyL a la que pertenecen los datos <br>
 * Calificación: califica el agua con distintos valores, EXCELENTE, BUENA, SUFICIENTE, INSUFICIENTE y SIN CALIFICAR
 
-## OBJETIVO 1
+# **5.Objetivos**
+## __Primer objetivo__
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
@@ -292,86 +291,90 @@ graficaSinCalificar2016<-ggplot(data = calidadAguaSinAnalisisProvincia2016, aes(
   theme (plot.title = element_text(size=rel(2),   color="black")) 
 ```
 
-<font size="4">En el primer obetivo hablaremos sobre las diferentes provincias de __Castilla y León__ y sus distintas calidades de agua, con tres niveles de calidad de agua, __apta__, __no apta__ y __sin calificar__. Lo haremos para los años __2019__, __2018__, __2017__ y __2016__.</font>
+<font size="4">
+En el primer obetivo hablaremos sobre las diferentes provincias de __Castilla y León__ y sus distintas calidades de agua, con tres niveles de calidad de agua, __apta__, __no apta__ y __sin calificar__. Lo haremos para los años __2019__, __2018__, __2017__ y __2016__.
+</font>
 
 <center>
   ![](https://www.iagua.es/sites/default/files/styles/thumbnail-830x455/public/potable_maule_utalca.jpg?itok=Bk9Iyif5){width=600px}
 
-## OBJETIVO 1
-<font size="4">Para relacionar las diferentes calidades de agua con sus respectivas provincias de Castilla y León en los distintos años mencionados anteriormente, hemos tenido que reagrupar columnas de la base de datos puesto que en ella encontrabamos las calidades de agua separadas en dos tipos de aptos y no aptos, lo cual no nos parecia extremadamente relevante para nuestro analisis por lo que hemos optado por reagrupar las calidades de agua en apto y no apto, además de sin calificar.</font>
+
+<font size="4">
+Para relacionar las diferentes calidades de agua con sus respectivas provincias de Castilla y León en los distintos años mencionados anteriormente, hemos tenido que reagrupar columnas de la base de datos puesto que en ella encontrabamos las calidades de agua separadas en dos tipos de aptos y no aptos, lo cual no nos parecia extremadamente relevante para nuestro analisis por lo que hemos optado por reagrupar las calidades de agua en apto y no apto, además de sin calificar.
+</font>
 
 <center>
   ![](https://agqlabs.es/tienda/wp-content/uploads/2020/09/an%C3%A1lisis-calidad-del-agua.jpg){width=400px}
   
-## 
+ 
 ```{r,  fig.height=3, fig.dim=3}
 graficaAptos2019
 graficaAptos2018
 ```
-  
-## 
+
+
 ```{r,  fig.height=3, fig.dim=3}
 graficaAptos2017
 graficaAptos2016
 ```
 
-##
-<font size="4"> Podemos observar como a la cabeza de Castilla y León en terminos de calidad a agua encontramos en primer lugar a León durante 4 años consecutivos al igual que en segundo lugar se encuentra Salamanca y en tercer lugar Burgos durante estos 4 años. El resto de provincias tienen niveles mas o menos parecidos y campian de posicion dependiendo de los años salvo Segovia y palencia que siempre estan en último lugar.</font>
+
+<font size="4"> 
+Podemos observar como a la cabeza de Castilla y León en terminos de calidad a agua encontramos en primer lugar a León durante 4 años consecutivos al igual que en segundo lugar se encuentra Salamanca y en tercer lugar Burgos durante estos 4 años. El resto de provincias tienen niveles mas o menos parecidos y campian de posicion dependiendo de los años salvo Segovia y palencia que siempre estan en último lugar.</font>
 
 <center>
   ![](https://cdn-blog1.fibrasynormasdecolombia.com/wp-content/uploads/2018/04/CALIDAD_AGUA.jpg){width=500px}
   
-  ## 
 ```{r,  fig.height=3, fig.dim=3}
 graficaNoAptos2019
 graficaNoAptos2018
 ```
-  
-## 
+
 ```{r,  fig.height=3, fig.dim=3}
 graficaNoAptos2017
 graficaNoAptos2016
 ```
 
-##
-<font size="4"> Podemos observar como en cuanto a calidad del agua no apta no podemos establecer ninguna relacion clara entre provincias ya que estas varian ampliamente durante los 4 años de nuestro estudio. No obstante, podriamos remarcar que Ávila, Segovia y salamaca se pelean por las tres primeras plazas en cuanto a calidad del agua no apta, salvo en 2016 donde entra en juego tambíen León. Podríamos recalcar también que Palencia y zamora se encuentran casi siempre en las ultimas posiciones.</font>
+
+<font size="4"> 
+Podemos observar como en cuanto a calidad del agua no apta no podemos establecer ninguna relacion clara entre provincias ya que estas varian ampliamente durante los 4 años de nuestro estudio. No obstante, podriamos remarcar que Ávila, Segovia y salamaca se pelean por las tres primeras plazas en cuanto a calidad del agua no apta, salvo en 2016 donde entra en juego tambíen León. Podríamos recalcar también que Palencia y zamora se encuentran casi siempre en las ultimas posiciones.</font>
 
 <center>
   ![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=500px}
   
-  ## 
 ```{r,  fig.height=3, fig.dim=3}
 graficaSinCalificar2019
 graficaSinCalificar2018
 ```
   
-## 
+
 ```{r,  fig.height=3, fig.dim=3}
 graficaSinCalificar2017
 graficaSinCalificar2016
 ```
 
-##
-<font size="4"> Para terminar con el objetivo 1, podemos observar que no existe relación alguna entre las provincias y sus niveles de agua sin calificar.</font>
+<font size="4"> 
+Para terminar con el objetivo 1, podemos observar que no existe relación alguna entre las provincias y sus niveles de agua sin calificar.</font>
 
 <center>
-  ![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=700px}
+![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=700px}
 
-## OBJETIVO 2
+## __Segundo objetivo__
 <font size="4">En este segundo objetivo hableremos sobre la deteccion de enfermedades analizando las aguas residuales. En la situacion en la que nos encontramos, se ha hecho patente que el analisis de las aguas residuales nos puede ayudar para localizar e incluso predecir un futuro brote de alguna enfermedad. En este caso, se busca la presencia de __COVID-19__ en las aguas residuales de __Castilla y León__ y su evolucion.</font>
 
 <center>
   ![](https://www.webconsultas.com/sites/default/files/styles/cabecera_noticia/public/media/2021/04/05/aguas_residuales-covid.jpg){width=400px}
 
-## OBJETIVO 2
-<font size="4">Las muestras recogidas para el estudio se obtuvieron en 23 estaciones depuradoras de aguas residuales (EDAR) que hay en Castilla y León. Para nuestro analisis, nos centraremos en los datos obtenidos de las depuradores de las __capitales de provincia__ de la comunidad. En Castilla y León hay 9 provincias, por lo que en nuestro analisis nos centraremos en los resultados mas relevantes.  
+
+<font size="4">
+Las muestras recogidas para el estudio se obtuvieron en 23 estaciones depuradoras de aguas residuales (EDAR) que hay en Castilla y León. Para nuestro analisis, nos centraremos en los datos obtenidos de las depuradores de las __capitales de provincia__ de la comunidad. En Castilla y León hay 9 provincias, por lo que en nuestro analisis nos centraremos en los resultados mas relevantes.  
 Todos los datos han sido recogidos a los largo del __año 2021__.</font>
 
 <center>
  ![](https://idecyl.jcyl.es/geonetwork/srv/api/records/SPAGOBCYLCITDTSUSERU/attachments/us.edar_cyl_edaru.png){width=300px}
 
 
-## 
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(readr)
 library(dplyr)
@@ -430,55 +433,55 @@ GraficaSoria <- ggplot(data = Soria, aes(x = Fecha, y = Resultados))+
   geom_point(aes(colour = Variacion))
 GraficaZamora
 ```
-<font size="4"> Podemos observar como se detecta el primer positivo a finales de 2020 y se sigue detectando valores positivos a lo largo del año. Pero a partir de septiembre no se detectan nuevos positivos, lo que nos indica que la provincia esta en muy buena situacion.</font>
+<font size="4"> 
+Podemos observar como se detecta el primer positivo a finales de 2020 y se sigue detectando valores positivos a lo largo del año. Pero a partir de septiembre no se detectan nuevos positivos, lo que nos indica que la provincia esta en muy buena situacion.</font>
 
 
-## 
+
 ```{r}
 GraficaSalamanca
 ```
-<font size="4"> En Salamanca observamos como se ha detectado la presencia del COVID-19 regularmente durante todo el año. Observamos la cantidad se matiene constante a lo largo del año.</font>
+<font size="4"> 
+En Salamanca observamos como se ha detectado la presencia del COVID-19 regularmente durante todo el año. Observamos la cantidad se matiene constante a lo largo del año.</font>
 
-## 
+
 ```{r}
 GraficaBurgos
 ```
-<font size="4"> En Burgos, observamos tambien como se ha detectado de manera regular la presencia de COVID-19.
+<font size="4"> 
+En Burgos, observamos tambien como se ha detectado de manera regular la presencia de COVID-19.
 En este caso, si que observamos una mayor variacion en los valores, ya que aumentan y disminuyen constantemente.</font>
 
-## 
+
 ```{r}
 GraficaSoria
 ```
-<font size="4"> En Soria observamos como se ha detectado el COVID-19 constantemente durante todo el año, con solo un valor negativo. Tambien observasmos que el valor se mantiene constante por lo general.</font>
+<font size="4"> 
+En Soria observamos como se ha detectado el COVID-19 constantemente durante todo el año, con solo un valor negativo. Tambien observasmos que el valor se mantiene constante por lo general.</font>
 
 
-## OBJETIVO 3
+## __Tercer objetivo__
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-calificaciones_de_zonas_de_aguas_de_bano <- read_delim("DATOS/calificaciones-de-zonas-de-aguas-de-bano.csv",
-                                                       col_types = cols(Calificación = readr::col_factor(levels = c("EXCELENTE", "BUENA", "SUFICIENTE", "INSUFICIENTE","SIN CALIFICAR"))),
-                                                       delim = ";", escape_double = FALSE, trim_ws = TRUE)
-
-calificacionesProvincia2020<-calificaciones_de_zonas_de_aguas_de_bano%>%
-  dplyr::filter(.data = ., Año==2020)%>%
+library(readr)
+calificaciones_de_zonas_de_aguas_de_bano<- read_delim("DATOS/calificaciones-de-zonas-de-aguas-de-bano.csv", 
+                                                       delim = ";", escape_double = FALSE, trim_ws = TRUE,
+)
+#EXCELENTE4,BUENA 3,SUFICIENTE 2 INSUFICIENTE 1, SIN CALIFICAR NA
+#AÑO 2018
+calificacionesProvincia2018<-calificaciones_de_zonas_de_aguas_de_bano%>%
+  dplyr::filter(.data = ., Año==2018)%>%
   select(Año,Provincia,Calificación)%>%
-  mutate(Calificación = ifelse(Calificación=="EXCELENTE",4,ifelse(Calificación=="BUENA",3,ifelse(Calificación=="SUFICIENTE",2,ifelse(Calificación=="INSUFICIENTE",1,NA)))))
+  mutate(Calificación = ifelse(Calificación=="Excelente",4,ifelse(Calificación=="Buena",3,ifelse(Calificación=="Suficiente",2,
+                        ifelse(Calificación=="Insuficiente",1,NA)))))
 
-calificacionesmediaProvincias2020<-calificacionesProvincia2020%>%
+calificacionesmediaProvincias2018<-calificacionesProvincia2018%>%
   group_by(Provincia)%>%
   filter(n() > 1) %>%
   summarise(across(where(is.numeric), ~ mean(.x, na.rm = TRUE)))
 
-grafica2020<-ggplot(data=calificacionesmediaProvincias2020, aes(x=reorder(Provincia,-Calificación), y=Calificación), fill = "rojo") + 
-  geom_bar(stat="identity", position="dodge")+
-  labs( title = "CALIFICACION AGUAS DE BAÑO 2020 CYL",
-        x = "Provincias",
-        y = "Calificacion")+
-  geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
-  
-  theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
 
+#AÑO2019
 calificacionesProvincia2019<-calificaciones_de_zonas_de_aguas_de_bano%>%
   dplyr::filter(.data = ., Año==2019)%>%
   select(Año,Provincia,Calificación)%>%
@@ -499,17 +502,25 @@ grafica2019<-ggplot(data=calificacionesmediaProvincias2019, aes(x=reorder(Provin
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
   theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
 
-agua2020<-ggplot(data = calidadAguaAptaProvincia2019, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+grafica2018<-ggplot(data=calificacionesmediaProvincias2018, aes(x=reorder(Provincia,-Calificación), y=Calificación), fill = "rojo") + 
+  geom_bar(stat="identity", position="dodge")+
+  labs( title = "CALIFICACION AGUAS DE BAÑO 2018 CYL",
+        x = "Provincias",
+        y = "Calificacion")+
+  geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
+  theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
+
+agua2019<-ggplot(data = calidadAguaAptaProvincia2019, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
   geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
-  labs( title = "CALIFICACION AGUAS APTAS 2020 CYL",
+  labs( title = "CALIFICACION AGUAS APTAS 2019 CYL",
         x = "Provincias",
         y = "Numero Aptos Total")+
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
   theme (plot.title = element_text(size=rel(2),   color="darkslategray4",hjust = 0.5,face="bold"))
 
-agua2019<-ggplot(data = calidadAguaAptaProvincia2018, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
+agua2018<-ggplot(data = calidadAguaAptaProvincia2018, aes(x = reorder(Provincia,-AptosTotal), y = AptosTotal)) + 
   geom_bar(stat="identity", position="dodge", colour ="black", fill = "green")+
-  labs( title = "CALIFICACION AGUAS APTAS 2019 CYL",
+  labs( title = "CALIFICACION AGUAS APTAS 2018 CYL",
         x = "Provincias",
         y = "Numero Aptos Total")+
   geom_bar(stat="identity", color = "blue",fill="steelblue") + theme_minimal()+
@@ -519,27 +530,17 @@ agua2019<-ggplot(data = calidadAguaAptaProvincia2018, aes(x = reorder(Provincia,
 En este tercer objetivo hablaremos de la relacion que tienen la calidad de agua de consumo con la calidad del agua de baño en Castilla y Leon.
 El agua de consumo lo evaluaremos como __Apto__ o __No Apto__ y el Agua de baño lo evaluaremos numericamente del 0 al 4, siendo el 4 una calidad __Excelente__ y el 0 una calidad __Insuficiente__.
 <center>
-![](https://www.ambientalys.com/web/wp-content/uploads/2018/07/agua-de-consumo-humano.jpg){width=350px}
 
-
-![](https://www.salamanca24horas.com/uploads/s1/12/45/16/68/estanque-la-palla-garcibuey-foto-ayuntamiento-1.jpeg){width=300px}
-
-## 
 
 ```{r,  fig.height=3}
-grafica2020
 grafica2019
-```
-
-## 
-
-```{r,  fig.height=3, fig.dim=3}
-agua2020
 agua2019
+grafica2018
+agua2018
+
 ```
 
-## RELACION
+### CONCLUSION
 
-Como podemos apreciar en ambas graficas no existe relacion entre la calidad del agua de consumo con la calidad del agua de baño de las distintas provincias de Castilla y Leon
-
-![](https://www.12caracteristicas.com/wp-content/uploads/2018/09/hipotesis.png){width=400px}
+Comparando visulamente no podemos relacionar la calidad del agua de baño con la calidad del agua de consumo en CyL
+![](https://media.istockphoto.com/vectors/conclusion-red-grunge-round-vintage-rubber-stamp-vector-id854152326){width=350px}
