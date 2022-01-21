@@ -290,22 +290,31 @@ graficaSinCalificar2016<-ggplot(data = calidadAguaSinAnalisisProvincia2016, aes(
         y = "Numero Sin Calificación")+
   theme (plot.title = element_text(size=rel(2),   color="black")) 
 ```
+<br>
 
 <font size="4">
 En el primer obetivo hablaremos sobre las diferentes provincias de __Castilla y León__ y sus distintas calidades de agua, con tres niveles de calidad de agua, __apta__, __no apta__ y __sin calificar__. Lo haremos para los años __2019__, __2018__, __2017__ y __2016__.
 </font>
 
-<center>
-  ![](https://www.iagua.es/sites/default/files/styles/thumbnail-830x455/public/potable_maule_utalca.jpg?itok=Bk9Iyif5){width=600px}
+<br>
 
+<center>
+  ![](https://www.iagua.es/sites/default/files/styles/thumbnail-830x455/public/potable_maule_utalca.jpg?itok=Bk9Iyif5){width=400px}
+
+<div style="text-align: justify">  
+<br>
 
 <font size="4">
 Para relacionar las diferentes calidades de agua con sus respectivas provincias de Castilla y León en los distintos años mencionados anteriormente, hemos tenido que reagrupar columnas de la base de datos puesto que en ella encontrabamos las calidades de agua separadas en dos tipos de aptos y no aptos, lo cual no nos parecia extremadamente relevante para nuestro analisis por lo que hemos optado por reagrupar las calidades de agua en apto y no apto, además de sin calificar.
 </font>
 
+<br>
+
 <center>
   ![](https://agqlabs.es/tienda/wp-content/uploads/2020/09/an%C3%A1lisis-calidad-del-agua.jpg){width=400px}
-  
+
+
+<br>
  
 ```{r,  fig.height=3, fig.dim=3}
 graficaAptos2019
@@ -318,46 +327,68 @@ graficaAptos2017
 graficaAptos2016
 ```
 
+<div style="text-align: justify">  
+<br>
 
 <font size="4"> 
 Podemos observar como a la cabeza de Castilla y León en terminos de calidad a agua encontramos en primer lugar a León durante 4 años consecutivos al igual que en segundo lugar se encuentra Salamanca y en tercer lugar Burgos durante estos 4 años. El resto de provincias tienen niveles mas o menos parecidos y campian de posicion dependiendo de los años salvo Segovia y palencia que siempre estan en último lugar.</font>
 
+<br>
+
 <center>
-  ![](https://cdn-blog1.fibrasynormasdecolombia.com/wp-content/uploads/2018/04/CALIDAD_AGUA.jpg){width=500px}
+  ![](https://cdn-blog1.fibrasynormasdecolombia.com/wp-content/uploads/2018/04/CALIDAD_AGUA.jpg){width=400px}
+
+
+<br>
   
 ```{r,  fig.height=3, fig.dim=3}
 graficaNoAptos2019
 graficaNoAptos2018
 ```
 
+
 ```{r,  fig.height=3, fig.dim=3}
 graficaNoAptos2017
 graficaNoAptos2016
 ```
 
+<div style="text-align: justify">  
+<br>
 
 <font size="4"> 
 Podemos observar como en cuanto a calidad del agua no apta no podemos establecer ninguna relacion clara entre provincias ya que estas varian ampliamente durante los 4 años de nuestro estudio. No obstante, podriamos remarcar que Ávila, Segovia y salamaca se pelean por las tres primeras plazas en cuanto a calidad del agua no apta, salvo en 2016 donde entra en juego tambíen León. Podríamos recalcar también que Palencia y zamora se encuentran casi siempre en las ultimas posiciones.</font>
 
+<br>
+
 <center>
-  ![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=500px}
-  
+  ![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=400px}
+
+
+<br>
+
 ```{r,  fig.height=3, fig.dim=3}
 graficaSinCalificar2019
 graficaSinCalificar2018
 ```
-  
+
 
 ```{r,  fig.height=3, fig.dim=3}
 graficaSinCalificar2017
 graficaSinCalificar2016
 ```
 
+<div style="text-align: justify">  
+<br>
+
 <font size="4"> 
 Para terminar con el objetivo 1, podemos observar que no existe relación alguna entre las provincias y sus niveles de agua sin calificar.</font>
 
+<br>
+
 <center>
-![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=700px}
+![](https://images.reporteindigo.com/wp-content/uploads/2020/10/calidad-del-agua.jpg){width=400px}
+<div style="text-align: justify">  
+<br>
 
 ## __Segundo objetivo__
 <font size="4">En este segundo objetivo hableremos sobre la deteccion de enfermedades analizando las aguas residuales. En la situacion en la que nos encontramos, se ha hecho patente que el analisis de las aguas residuales nos puede ayudar para localizar e incluso predecir un futuro brote de alguna enfermedad. En este caso, se busca la presencia de __COVID-19__ en las aguas residuales de __Castilla y León__ y su evolucion.</font>
